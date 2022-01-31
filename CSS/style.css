@@ -1,0 +1,38 @@
+:root{
+	--black: rgb(30,30,30);
+}
+
+header{
+	display: flex;
+	background-color: white;
+	box-sizing: border-box;
+	text-items: center;
+	justify-content: space-between;
+	padding: 0.5rem;
+	height: 50px;
+	width: 100%;
+	top: 0; left: 0;right: 0;
+}
+
+.menu{
+	margin: 0 2px 0 2px;
+	color: #490a5c;
+	text-decoration: none;
+}
+
+.btn{
+	color: #490a5c;
+	text-decoration: none;
+	padding: 0.5rem;
+	border-radius: 5px;
+    background-color: #c44fe7;
+    color: white;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+	/*text-weight: bold;*/
+}
+
+.logo {
+
+    color: #490a5c;
+    margin-top: -19.5px;   
+}
