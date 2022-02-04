@@ -10,18 +10,47 @@
 <body>
 	<header>
 		<div class = "logo">
-			<h2>forca.com</h2>
+			<h2>Forca</h2>
 		</div>
 
 		<div class = "navbar">
 			<nav>
 				<a href = "index.html" class = "menu">Home</a>
 				<a href = "contato.html" class = "menu">Contato</a>
-				<button type = "button" class = "btn"><b>DarkTheme</b></button>
 			</nav>
 		</div> <!-- nav bar -->
-	</header>
-	<hr>
+	</header> <!-- header-->
 
+	<div style="height:44px;background-color: #1E1E1E;"></div>
+
+	<main>
+		<section class = "apresentar">
+			<p>Seja bem vindo ao jogo da forca!
+			Para jogar, Clique em iniciar jogo logo abaixo.
+			<br><br>
+			Você pode adicionar palavras ao banco de dados do jogo.
+			Para fazer isso, clique no botão "Adicionar palavra",
+			após ter escolhido a palavra que vai adicionar e o gênero dela.
+			<br><br>
+			Esse projeto é o resultado de um desafio proposto pela Oracle e pela Alura
+			através do next education, um curso gratuíto liberado por essas empresas.
+			</p>
+		</section> <!--apresentacao-->
+
+		<section class = "game">
+			<input type = "button" value = "Iniciar Jogo" class = "botao"></input>
+			<hr>
+			<div class= = "addpalavra">
+				<input class = "text-input" type = "text-input" placeholder = "Escreva a palavra a ser adicionada aqui!"></input>
+				<div>
+					<input type = "button" value = "Adicionar palavra" class = "botao"></input>
+				</div> <!-- botao -->
+			</div> <!-- addPalavra -->
+		</section> <!-- game -->
+		<section class = "gamecanvas">
+			<canvas id="myCanvas" width="300" height="400"></canvas>
+		</section>
+
+	</main> <!--main-->
 </body>
 </html>

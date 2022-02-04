@@ -1,38 +1,104 @@
-:root{
-	--black: rgb(30,30,30);
+html{
+	overflow-x: hidden;
 }
+
+html::-webkit-scrollbar{
+	width: 0.8rem;
+}
+
+html::-webkit-scrollbar-track{
+	background: rgba(45,45,45);
+}
+
+html::-webkit-scrollbar-thumb{
+	background: lightgrey;
+	border-radius:20px;
+}
+
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/* #32a7e5; */
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
 
 header{
 	display: flex;
-	background-color: white;
-	box-sizing: border-box;
-	text-items: center;
+	background-color: rgba(45,45,45,.9);
 	justify-content: space-between;
-	padding: 0.5rem;
-	height: 50px;
 	width: 100%;
-	top: 0; left: 0;right: 0;
+	padding: 10px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #1D70A2;
+	-webkit-user-select: none;
+	user-select: none;
+	position: fixed;
 }
 
 .menu{
 	margin: 0 2px 0 2px;
-	color: #490a5c;
+    color: rgba(255,255,255,.8);
 	text-decoration: none;
 }
 
-.btn{
-	color: #490a5c;
-	text-decoration: none;
-	padding: 0.5rem;
-	border-radius: 5px;
-    background-color: #c44fe7;
-    color: white;
-    text-shadow: 1px 1px 1px rgb(0, 0, 0);
-	/*text-weight: bold;*/
+.menu:hover{
+    color: rgba(255,255,255,.8);
+	transition:0.15s
 }
 
 .logo {
+	/* text-shadow: 2px 1px 1px rgba(255,255,255,0.2); */
+    color: rgba(255,255,255,.8);
+	font-size: 14px;
+	margin-top:-5px;
+}
 
-    color: #490a5c;
-    margin-top: -19.5px;   
+.apresentar{
+	text-align: center;
+	background-color: #1E1E1E;
+	color: rgba(255,255,255,.8);
+	padding: 30px;
+	line-height: 1.5;
+	font-size: 17px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #1D70A2;
+}
+
+.game{
+	padding: 0px;
+	text-align: center;
+	background-color: rgb(45,45,45);
+	border-bottom: 1px solid #1D70A2;
+}
+
+.gamecanvas{
+	background-color: #1E1E1E;
+}
+
+.botao{
+	padding: 13px;
+	margin: 30px 0 30px 0;
+	border-radius: 5px;
+	background-color: #1D70A2;
+    color: white;
+	border: none;
+}
+
+.botao:hover{
+	background-color: #4FA2D4;
+	transition:0.15s;
+}
+
+.text-input{
+	text-align: center;
+	margin: 30px 0 0px 0;
+	width: 70%;
+	padding:13px;
+	border-radius: 5px;
+	border: 1px solid #1D70A2;
 }
