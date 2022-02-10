@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Jogue forca!</title>
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	<link rel="icon" type="image/png" href="Imagens/logo.png">
 </head>
 
 <body>
@@ -21,8 +22,6 @@
 		</div> <!-- nav bar -->
 	</header> <!-- header-->
 
-	<div style="height:44px;background-color: #1E1E1E;"></div>
-
 	<main>
 		<section class = "apresentar">
 			<p>Seja bem vindo ao jogo da forca!
@@ -38,19 +37,63 @@
 		</section> <!--apresentacao-->
 
 		<section class = "game">
-			<input type = "button" value = "Iniciar Jogo" class = "botao"></input>
+			<a href = "#final">
+				<input type = "button" value = "Iniciar Jogo" class = "botao" id = "startgame"></input>
+			</a>	
 			<hr>
-			<div class= = "addpalavra">
-				<input class = "text-input" type = "text-input" placeholder = "Escreva a palavra a ser adicionada aqui!"></input>
+			<div class= "addpalavra">
+				<p>Escreva a baixo a palavra que deseja adicionar a base de dados, 
+				levando em conta o tipo dela:</p>
+				<!-- erro -->
+					<p id = "erroNone">Você tem que selecionar uma opção válida</p>
+					<p id = "erroPala">Você tem que escrever algo para adicionar!</p>
+				<!-- erro -->
+				<div class = "tipopalavra">
+					<select name="tipo" id = "tipo">
+						<option value="None">Selecione aqui</option>
+						<option value="Fruta">Fruta</option>
+						<option value="Vei">Veículo</option>
+						<option value="Legume">Legume</option>
+						<option value="Time">Time</option>
+					</select> <!-- tipo -->
 				<div>
-					<input type = "button" value = "Adicionar palavra" class = "botao"></input>
+				<input class = "text-input" type = "text-input" placeholder = "Escreva a palavra a ser adicionada aqui!" maxlength ="6"id = "palavrasadd">
+			</input>
+				<div>
+					<input type = "button" value = "Adicionar palavra" class = "botao" id = "addpalavra"></input>
 				</div> <!-- botao -->
 			</div> <!-- addPalavra -->
 		</section> <!-- game -->
-		<section class = "gamecanvas">
-			<canvas id="myCanvas" width="300" height="400"></canvas>
+
+		<section id = "partefinal">
+			<div class = "ajuda">
+				<a name = "final"></a>
+				<p>A palavra é um(a):</p>
+				<p id = "class"></p>
+			</div> <!-- ajuda -->
+			<section class = "gamecanvas">
+				<canvas id = "canvas" width="300" height="250"></canvas>
+			</section> <!-- canvas -->
+
+			<div class = "indicacao" id = "indicacaoId">
+				
+			</div> <!--indicacao -->
+
+			<div class = "indicacaoTexto">
+				<p>Escreva abaixo a letra que usara na forca:</p>
+				<input class = "text-input" type = "text-input" placeholder = "Escreva a letra de tentativa aqui!" maxlength ="1" id = "forcaletra"></input>
+				<div>
+					<input type = "button" value = "Tentar letra" class = "botao" id = "TentarLetra"></input>
+				</div> <!-- botao -->
+			</div> <!-- IndicacaoTexto -->
 		</section>
 
+		<div style="height: 100px;	background-color: #1E1E1E;
+		"></div>
+
 	</main> <!--main-->
+	<script src = "JS/script.js"></script>
+	<!-- <script src = "JS/canvas.js"></script> -->
+
 </body>
 </html>
