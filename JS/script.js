@@ -50,19 +50,34 @@ function drawPe(){
     ctx.stroke();
 }
 
+function desfazerDesenho(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawForca();
+}
+
 // -- add funcionalidade do jogo -- //
 
-start = document.getElementById("startgame");
-add = document.getElementById("addpalavra");
-tentar = document.getElementById("TentarLetra");
-indicacao = document.getElementById("indicacaoId");
-letra = document.getElementById("forcaletra");
-tipo = document.getElementById("tipo");
-palavras = document.getElementById("palavrasadd");
-final = document.getElementById("partefinal");
-indica = document.getElementsByClassName("indica");
+var start = document.getElementById("startgame");
+var add = document.getElementById("addpalavra");
+var tentar = document.getElementById("TentarLetra");
+var indicacao = document.getElementById("indicacaoId");
+var indica = document.getElementsByClassName("indica");
+var indicacaoerro = document.getElementById("indicacaoErroId");
+var indicaerro = document.getElementsByClassName("indicaerro");
+var letra = document.getElementById("forcaletra");
+var tipo = document.getElementById("tipo");
+var palavras = document.getElementById("palavrasadd");
+var final = document.getElementById("partefinal");
+var vitoria = document.getElementsByClassName("vitoria")[0];
+var derrota = document.getElementsByClassName("derrota")[0];
+var selecionadoPalavra = '';
+var valida = 0;
+var validaresp = 0;
+var vez = 0;
 document.getElementById("erroNone").classList.add("displayNone")
 document.getElementById("erroPala").classList.add("displayNone")
+vitoria.classList.add("displayNone");
+derrota.classList.add("displayNone");
 
 final.classList.add("displayNone");
 
@@ -77,7 +92,21 @@ function aleatorizar(array){
 }
 
 start.addEventListener("click", function(event) {
-    indice = indica.length;
+    letra.value = "";
+    desfazerDesenho();
+    console.log(indicaerro.length);
+    for (var i = 0; i <= indicaerro.length + 1; i++) {
+        try{
+            indicaerro[0].remove();
+        } catch (err){
+            continue;
+        }
+    }
+    vitoria.classList.add("displayNone");
+    derrota.classList.add("displayNone");
+    vez = 0;
+    event.preventDefault();
+    let indice = indica.length;
     final.classList.remove("displayNone");
     selecionado = todos[aleatorizar(4)]
     if (selecionado == frutas) document.getElementById("class").innerHTML = "Fruta";
@@ -97,6 +126,15 @@ start.addEventListener("click", function(event) {
             indica[i*-1].remove();
         }
     }
+    for (var i = 0; i < indice ; i++) {
+        try{
+            indica[i].innerHTML = "";
+        }
+        catch(err){
+            continue;
+        }
+    } 
+
     
 });
 
@@ -107,7 +145,6 @@ add.addEventListener("click", function(event) {
     } else if (tipo.value == "Fruta"){
         document.getElementById("erroNone").classList.add("displayNone")
         if (palavras.value == ""){
-            console.log(palavras.value);
             document.getElementById("erroPala").classList.remove("displayNone")
         } else {
             frutas.push(palavras.value);
@@ -145,8 +182,52 @@ add.addEventListener("click", function(event) {
 });
 
 tentar.addEventListener("click", function(event) {
+    valida = 0;
+    validaresp = 0;
     event.preventDefault();
-    indicacao.innerHTML += '<p class = "indica"></p>';
+    
+    if (vez < 4){
+        vitoria.classList.add("displayNone");
+        if (letra.value == ""){
+
+        } else {
+            for (var i = 0; i < selecionadoPalavra.length; i++){
+                if (letra.value.toLowerCase() == selecionadoPalavra[i].toLowerCase().normalize("NFD").replace(/[^a-zA-Zs]/g, "")){
+                    indica[i].innerHTML = letra.value.toLowerCase();
+                    valida += 1;
+                }
+            }
+            if (valida == 0){
+                indicacaoerro.innerHTML += '<p class = "indicaerro">'+letra.value.toLowerCase()+'</p>'
+                if (vez == 0){
+                    drawCabeca();
+                } else if (vez == 1){
+                    drawCorpo();
+                } else if (vez == 2){
+                    drawBraco();
+                } else if (vez == 3){
+                    drawPe();
+                }
+                vez = vez + 1;
+            }
+            letra.value = "";
+        }
+        for (var i = 0; i <selecionadoPalavra.length; i++) {
+            if (indica[i].innerHTML.toLowerCase() == selecionadoPalavra[i].toLowerCase()) {
+                validaresp += 1;
+            }
+        }
+        if (validaresp == selecionadoPalavra.length) {
+            vez = 4;
+        }
+        if (vez == 4){
+            if (validaresp == selecionadoPalavra.length) {
+                vitoria.classList.remove("displayNone");
+            } else {
+                derrota.classList.remove("displayNone");
+            }
+        }
+    }
 }); 
 
 drawForca();

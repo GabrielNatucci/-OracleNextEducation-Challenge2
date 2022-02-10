@@ -24,7 +24,7 @@
 
 	<main>
 		<section class = "apresentar">
-			<p>Seja bem vindo ao jogo da forca!
+			<p>Seja bem vind ao ao jogo da forca!
 			Para jogar, Clique em iniciar jogo logo abaixo.
 			<br><br>
 			Você pode adicionar palavras ao banco de dados do jogo.
@@ -75,9 +75,23 @@
 				<canvas id = "canvas" width="300" height="250"></canvas>
 			</section> <!-- canvas -->
 
-			<div class = "indicacao" id = "indicacaoId">
-				
+			<div class = "vitoria">
+				<h2> Parabéns, você venceu!</h2>
+				<p> Se quiser começar um novo jogo, basta subir a página e clicar em iniciar jogo! </p>
+			</div>
+
+			<div class = "derrota">
+				<h2> Você perdeu!</h2>
+				<p> Se quiser começar um novo jogo, basta subir a página e clicar em iniciar jogo! </p>
+			</div>
+
+			<div class = "indicacao" id = "indicacaoId"> <!-- para indicar as letras que foram acertadas -->
+
 			</div> <!--indicacao -->
+
+			<div class = "indicacaoerro" id = "indicacaoErroId"> <!-- para mostrar as letras que foram erradas -->
+				
+			</div> <!-- indicacao erro -->
 
 			<div class = "indicacaoTexto">
 				<p>Escreva abaixo a letra que usara na forca:</p>
@@ -88,10 +102,25 @@
 			</div> <!-- IndicacaoTexto -->
 		</section>
 
-		<div style="height: 100px;	background-color: #1E1E1E;
-		"></div>
-
 	</main> <!--main-->
+
+	<footer>
+		<hr>
+		<h3>Desenvolvido por: Gabriel Natucci</h3>
+		<h4>Minhas redes:</h4>
+		<a href="https://github.com/GabrielNatucci" target="_blank">
+			<img src="imagens/git.png" width="35px" height="35px">
+		</a>
+		<a href="https://www.instagram.com/gabriel.natucci/" target="_blank">
+			<img src="imagens/insta.png" width="35px" height="35px">
+		</a>
+		<a href="https://www.linkedin.com/in/gabriel-natucci-russo-pimentel-de-toledo-3742b4219/" target="_blank">
+			<img src="imagens/linkedin.png" width="35px" height="35px">
+		</a>
+		<h4>Ano: 2022</h4>
+		<hr>  
+	  </footer>
+
 	<script src = "JS/script.js"></script>
 	<!-- <script src = "JS/canvas.js"></script> -->
 
