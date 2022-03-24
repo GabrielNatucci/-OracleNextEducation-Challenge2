@@ -24,45 +24,18 @@
 
 	<main>
 		<section class = "apresentar">
-			<p>Seja bem vind ao ao jogo da forca!
+			<p>Seja bem vindo ao ao jogo da forca!
 			Para jogar, Clique em iniciar jogo logo abaixo.
-			<br><br>
-			Você pode adicionar palavras ao banco de dados do jogo.
-			Para fazer isso, clique no botão "Adicionar palavra",
-			após ter escolhido a palavra que vai adicionar e o gênero dela.
-			<br><br>
+			<br><br>	
 			Esse projeto é o resultado de um desafio proposto pela Oracle e pela Alura
 			através do next education, um curso gratuíto liberado por essas empresas.
 			</p>
-		</section> <!--apresentacao-->
+		</section>
 
 		<section class = "game">
 			<a href = "#final">
 				<input type = "button" value = "Iniciar Jogo" class = "botao" id = "startgame"></input>
 			</a>	
-			<hr>
-			<div class= "addpalavra">
-				<p>Escreva a baixo a palavra que deseja adicionar a base de dados, 
-				levando em conta o tipo dela:</p>
-				<!-- erro -->
-					<p id = "erroNone">Você tem que selecionar uma opção válida</p>
-					<p id = "erroPala">Você tem que escrever algo para adicionar!</p>
-				<!-- erro -->
-				<div class = "tipopalavra">
-					<select name="tipo" id = "tipo">
-						<option value="None">Selecione aqui</option>
-						<option value="Fruta">Fruta</option>
-						<option value="Vei">Veículo</option>
-						<option value="Legume">Legume</option>
-						<option value="Time">Time</option>
-					</select> <!-- tipo -->
-				<div>
-				<input class = "text-input" type = "text-input" placeholder = "Escreva a palavra a ser adicionada aqui!" maxlength ="6"id = "palavrasadd">
-			</input>
-				<div>
-					<input type = "button" value = "Adicionar palavra" class = "botao" id = "addpalavra"></input>
-				</div> <!-- botao -->
-			</div> <!-- addPalavra -->
 		</section> <!-- game -->
 
 		<section id = "partefinal">

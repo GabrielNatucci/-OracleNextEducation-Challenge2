@@ -1,8 +1,6 @@
 var tela = document.querySelector("canvas");
 var ctx = tela.getContext("2d");
 
-console.log(tela)
-
 ctx.strokeStyle = 'rgba(255,255,255,.7)';
 
 function drawForca(){
@@ -58,7 +56,6 @@ function desfazerDesenho(){
 // -- add funcionalidade do jogo -- //
 
 var start = document.getElementById("startgame");
-var add = document.getElementById("addpalavra");
 var tentar = document.getElementById("TentarLetra");
 var indicacao = document.getElementById("indicacaoId");
 var indica = document.getElementsByClassName("indica");
@@ -74,8 +71,6 @@ var selecionadoPalavra = '';
 var valida = 0;
 var validaresp = 0;
 var vez = 0;
-document.getElementById("erroNone").classList.add("displayNone")
-document.getElementById("erroPala").classList.add("displayNone")
 vitoria.classList.add("displayNone");
 derrota.classList.add("displayNone");
 
@@ -92,9 +87,9 @@ function aleatorizar(array){
 }
 
 start.addEventListener("click", function(event) {
+    start.value = "Iniciar novo Jogo"
     letra.value = "";
     desfazerDesenho();
-    console.log(indicaerro.length);
     for (var i = 0; i <= indicaerro.length + 1; i++) {
         try{
             indicaerro[0].remove();
@@ -115,7 +110,6 @@ start.addEventListener("click", function(event) {
     if (selecionado == time) document.getElementById("class").innerHTML = "Time";
     
     selecionadoPalavra = (selecionado[aleatorizar(selecionado.length)]);
-    console.log(selecionadoPalavra);
 
     if (selecionadoPalavra.length - indice > 0){
         for (var i = 0; i < (selecionadoPalavra.length - indice) ; i++) {
@@ -134,51 +128,6 @@ start.addEventListener("click", function(event) {
             continue;
         }
     } 
-
-    
-});
-
-add.addEventListener("click", function(event) {
-    event.preventDefault();
-    if (tipo.value == "None"){
-        document.getElementById("erroNone").classList.remove("displayNone")
-    } else if (tipo.value == "Fruta"){
-        document.getElementById("erroNone").classList.add("displayNone")
-        if (palavras.value == ""){
-            document.getElementById("erroPala").classList.remove("displayNone")
-        } else {
-            frutas.push(palavras.value);
-            palavras.value = "";
-            document.getElementById("erroPala").classList.add("displayNone")
-        }
-    } else if (tipo.value == "Vei"){
-        document.getElementById("erroNone").classList.add("displayNone")
-        if (palavras.value == ""){
-            document.getElementById("erroPala").classList.remove("displayNone")
-        } else {
-            vei.push(palavras.value);
-            palavras.value = "";
-            document.getElementById("erroPala").classList.add("displayNone")
-        }
-    } else if (tipo.value == "Legume"){
-        document.getElementById("erroNone").classList.add("displayNone")
-        if (palavras.value == ""){
-            document.getElementById("erroPala").classList.remove("displayNone")
-        } else {
-            legumes.push(palavras.value);
-            palavras.value = "";
-            document.getElementById("erroPala").classList.add("displayNone")
-        }
-    } else if (tipo.value == "Time"){
-        document.getElementById("erroNone").classList.add("displayNone")
-        if (palavras.value == ""){
-            document.getElementById("erroPala").classList.remove("displayNone")
-        } else {
-            time.push(palavras.value);
-            palavras.value = "";
-            document.getElementById("erroPala").classList.add("displayNone")
-        }
-    }
 });
 
 tentar.addEventListener("click", function(event) {
